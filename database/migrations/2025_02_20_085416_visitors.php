@@ -11,14 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('visitors', function (Blueprint $table) {
+            $table->id();
+            $table->string('nim')->nullable();
+            $table->dateTime('check_in')->nullable();
+    
+            $table->foreign('nim')->references('nim')->on('students')->onDelete('set null');
+        });
     }
+    
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('visitors');
     }
 };
