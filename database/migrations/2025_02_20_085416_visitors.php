@@ -14,9 +14,11 @@ return new class extends Migration
         Schema::create('visitors', function (Blueprint $table) {
             $table->id();
             $table->string('nim')->nullable();
+            $table->unsignedBigInteger('id_lab')->nullable();
             $table->dateTime('check_in')->nullable();
     
             $table->foreign('nim')->references('nim')->on('students')->onDelete('set null');
+            $table->foreign('id_lab')->references('id')->on('labs')->onDelete('set null');
         });
     }
     
