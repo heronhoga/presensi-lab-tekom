@@ -9,6 +9,7 @@ Route::get('/', function () {
 });
 
 Route::get('/presensi/lab/{lab}', [PresensiController::class, 'index'])->name('presensi.index');
+Route::post('/presensi/lab/{lab}', [PresensiController::class, 'present'])->name('presensi.present');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

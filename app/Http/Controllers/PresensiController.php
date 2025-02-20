@@ -11,5 +11,10 @@ class PresensiController extends Controller
         $lab = $request->route('lab');
         return view('presensi', compact('lab'));
     }
+
+    public function present(Request $request) {
+        $lab = $request->input('nim');
+        dd($lab);
+    }
     
 }

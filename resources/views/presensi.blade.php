@@ -27,7 +27,12 @@
                     Multimedia @endif
                 </div>
 
-                <form id="presenceForm" method="POST" class="space-y-4">
+                <form
+                    id="presenceForm"
+                    method="POST"
+                    class="space-y-4"
+                    action="{{ route('presensi.present', ['lab' => $lab]) }}"
+                >
                     @csrf
                     <div class="input-group flex flex-col">
                         <label for="nim" class="text-left font-semibold"
