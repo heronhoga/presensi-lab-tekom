@@ -28,7 +28,7 @@ class PresensiController extends Controller
         $student = Student::where('nim', $nim)->first();
         
         if ($student === null) {
-            return view('presensi', compact('lab'))->with('failMessage', 'Data Mahasiswa tidak ditemukan');
+            return view('presensi', ['lab' => $labInput])->with('failMessage', 'Data Mahasiswa tidak ditemukan');
         }
         //end find student
 
