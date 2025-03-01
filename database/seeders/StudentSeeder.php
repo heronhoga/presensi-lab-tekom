@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Seeders;
+use App\Models\Student;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -14,13 +15,11 @@ class StudentSeeder extends Seeder
      */
     public function run(): void
     {
-        for ($i = 0; $i < 10; $i++) {
-            DB::table('students')->insert([
-                'nim' => str_pad(mt_rand(1, 9) . mt_rand(0, 9999999999999), 14, '0', STR_PAD_RIGHT),
-                'nama' => Str::random(10),
-                'angkatan' => '2021',
-            ]);
-        }
+        $students = [
+            ['nim' => '21120121140033', 'nama' => 'Fikri Abdurrohim Ibnu Prabowo', 'angkatan' => '2021'],
+        ];
+
+        Student::insert($students);
     }
-    
+
 }

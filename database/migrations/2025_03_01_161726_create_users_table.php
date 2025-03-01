@@ -16,9 +16,12 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            // Menambahkan kolom role_id dengan foreign key ke tabel roles
+            $table->foreignId('role_id')->default(2)->constrained('roles')->onDelete('cascade');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
