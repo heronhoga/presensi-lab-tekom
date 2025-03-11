@@ -1,7 +1,9 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\Visitor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -10,7 +12,12 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view("dashboard");
+        $totalVisitors = Visitor::select('id_lab', DB::raw('count(*) as total'))
+            ->groupBy('id_lab')
+            ->get()
+            ->keyBy('id_lab'); // Agar mudah diakses di view
+
+        return view('dashboard', compact('totalVisitors'));
     }
 
     /**

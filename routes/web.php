@@ -23,6 +23,7 @@ Route::post('/presensi/lab/{lab}', [PresensiController::class, 'present'])->name
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('/data', [DataController::class, 'index'])->name('admin.data');
+    // Route::resource('/dashboard', );
 });
 
 Route::middleware('auth')->group(function () {

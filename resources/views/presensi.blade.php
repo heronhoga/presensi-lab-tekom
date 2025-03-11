@@ -51,7 +51,7 @@
                 <input type="text" id="nim" name="nim" required maxlength="14" inputmode="numeric"
                     title="Please enter a valid 14-digit NIM" placeholder="Masukkan NIM Anda"
                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
-                    oninput="this.value = this.value.replace(/[^0-9]/g, '');" />
+                    oninput="this.value = this.value.replace(/[^0-9]/g, '');" autofocus />
             </div>
 
             <!-- Submit Button -->
